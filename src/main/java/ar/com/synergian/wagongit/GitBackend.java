@@ -115,7 +115,7 @@ public class GitBackend {
 				}
 			}
 
-			if (!run("fetch"))
+			if (!run("fetch", new String[] { "--progress" }))
 				throw new GitException("git fetch failed");
 		}
 
@@ -173,7 +173,7 @@ public class GitBackend {
 		if (!run("commit", new String[] { "--allow-empty", "-m", "[wagon-git]" + " commit to branch " + branch + " " + timestamp }))
 			throw new GitException("Unable to commit files");
 
-		if (!run("push", new String[] { "origin", branch }))
+		if (!run("push", new String[] { "--progress", "origin", branch }))
 			throw new GitException("Unable to push files");
 
 	}
