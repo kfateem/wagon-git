@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ar.com.synergian</groupId>
@@ -122,26 +123,51 @@
 	</build>
 
 	<scm>
-		<url>https://github.com/synergian/wagon-git</url>
-		<connection>scm:git:ssh://git@github.com/synergian/wagon-git.git</connection>
+		<connection>scm:git:git@bitbucket.org:beebly/maven.git</connection>
+		<url>scm:git:git@bitbucket.org:beebly/maven.git</url>
+		<developerConnection>scm:git:git@bitbucket.org:beebly/maven.git</developerConnection>
+		<tag>HEAD</tag>
 	</scm>
-
 	<distributionManagement>
 		<repository>
-			<id>wagon-git-releases</id>
-			<name>Synergian Releases</name>
-			<url>git:releases://git@github.com:synergian/wagon-git.git</url>
+			<id>maven</id>
+			<name>Maven Repo</name>
+			<url>git:releases://git@bitbucket.org:beebly/maven.git</url>
 		</repository>
-		<snapshotRepository>
-			<id>wagon-git-snapshots</id>
-			<name>Synergian Snapshots</name>
-			<url>git:snapshots://git@github.com:synergian/wagon-git.git</url>
-		</snapshotRepository>
-		<site>
-			<id>wagon-git-site</id>
-			<name>wagon-git Github Homepage</name>
-			<url>git:gh-pages://git@github.com:synergian/wagon-git.git</url>
-		</site>
 	</distributionManagement>
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>http://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>maven</id>
+			<name>Maven Repo</name>
+			<url>git:releases://git@bitbucket.org:beebly/maven.git</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>http://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>synergian-repo</id>
+			<url>https://raw.github.com/synergian/wagon-git/releases</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 </project>
